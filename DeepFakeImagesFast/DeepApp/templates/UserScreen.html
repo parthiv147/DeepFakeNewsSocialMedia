@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deepfake Detection Main Page">
+    <meta name="keywords" content="Deepfake, Detection, Social Media, Deep Learning">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Fake Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <div id="logo">
+                <h1>Deepfake Detection on Social Media</h1>
+                <p>Leveraging Deep Learning and FastText Embeddings for Identifying Machine-Generated Content</p>
+            </div>
+        </header>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'LoadDataset' %}">Dataset Loading</a></li>
+                <li><a href="{% url 'FastText' %}">Text Embedding values</a></li>
+                <li><a href="{% url 'TrainML' %}">Run All Algorithms</a></li>
+                <li><a href="{% url 'DetectFake' %}">Deep Fake Prediction</a></li>
+                <li><a href="{% url 'index' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <div id="splash">
+            <img class="pic" src="{% static 'images/imagei.jpg' %}" width="870" height="230" alt="Splash Image">
+        </div>
+        <section id="content">
+            <p style="color: red; text-align: center; font-size: 1.1em;">{{ data|safe }}</p>
+            <p class="description">Event Detection & Trust Verification</p>
+        </section>
+        <footer id="footer">
+            <p>&copy; 2024 Deepfake Detection. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

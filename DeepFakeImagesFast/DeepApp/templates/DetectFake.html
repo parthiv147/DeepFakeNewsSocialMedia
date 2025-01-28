@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deepfake Detection - Content Testing">
+    <meta name="keywords" content="Deepfake, Detection, Content Testing">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Fake - Content Testing</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script>
+        function validate(formObj) {
+            if (formObj.t1.value.length === 0) {
+                alert("Please Enter Event Post");
+                formObj.t1.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <div id="logo">
+                <h1>Deepfake Detection on Social Media</h1>
+                <p>Leveraging Deep Learning and FastText Embeddings for Identifying Machine-Generated Content</p>
+            </div>
+        </header>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'LoadDataset' %}">Dataset Loading</a></li>
+                <li><a href="{% url 'FastText' %}">Text Embedding values</a></li>
+                <li><a href="{% url 'TrainML' %}">Run All Algorithms</a></li>
+                <li><a href="{% url 'DetectFake' %}">Deep Fake Predicton</a></li>
+                <li><a href="{% url 'index' %}">Logout</a></li>
+            </ul>
+        </nav>
+        <div id="splash">
+            <img class="pic" src="{% static 'images/imagei.jpg' %}" width="870" height="230" alt="Splash Image">
+        </div>
+        <section id="content" class="tweet-testing-section">
+            <form name="f1" method="post" action="{% url 'DetectFakeAction' %}" onsubmit="return validate(this);">
+                <br>{% csrf_token %}<br>
+                <h3>Deepfake Content Testing Screen</h3>
+                <p style="color: red; font-size: 1.1em;">{{ data|safe }}</p>
+                <div class="form-container">
+                    <label for="t1">Enter Text</label>
+                    <input type="text" name="t1" id="t1" class="form-input" size="50">
+                    <input type="submit" value="Submit" class="form-button">
+                </div>
+            </form>
+        </section>
+        <footer id="footer">
+            <p>&copy; 2024 Deepfake Detection. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

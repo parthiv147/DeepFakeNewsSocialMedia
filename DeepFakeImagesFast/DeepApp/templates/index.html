@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deepfake Detection on Social Media">
+    <meta name="keywords" content="Deepfake, Detection, Social Media, Deep Learning">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Fake Detection</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <div id="logo">
+                <h1>Deepfake Detection on Social Media</h1>
+                <p>Leveraging Deep Learning and FastText Embeddings for Identifying Machine-Generated Content</p>
+            </div>
+        </header>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'UserLogin' %}">User Login Here</a></li>
+            </ul>
+        </nav>
+        <div id="splash">
+            <img class="pic" src="{% static 'images/imagei.jpg' %}" width="870" height="230" alt="Splash Image">
+        </div>
+        <section id="content">
+            <p>
+                Deepfake Detection on Social Media: Leveraging Deep Learning and FastText Embeddings for identifying machine-generated Content.
+            </p>
+        </section>
+        <footer id="footer">
+            <p>&copy; 2024 Deepfake Detection. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

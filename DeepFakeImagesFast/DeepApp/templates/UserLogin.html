@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deepfake Detection User Login">
+    <meta name="keywords" content="Deepfake, Detection, Login">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Fake User Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <script>
+        function validate(formObj) {
+            if (formObj.t1.value.length === 0) {
+                alert("Please Enter User ID");
+                formObj.t1.focus();
+                return false;
+            }
+            if (formObj.t2.value.length === 0) {
+                alert("Please Enter Password");
+                formObj.t2.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <div id="logo">
+                <h1>Deepfake Detection on Social Media</h1>
+                <p>Leveraging Deep Learning and FastText Embeddings for Identifying Machine-Generated Content</p>
+            </div>
+        </header>
+        <nav id="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'UserLogin' %}">User Login Here</a></li>
+            </ul>
+        </nav>
+        <div id="splash">
+            <img class="pic" src="{% static 'images/imagei.jpg' %}" width="870" height="230" alt="Splash Image">
+        </div>
+        <section id="content" class="login-section">
+            <form name="f1" method="post" action="{% url 'UserLoginAction' %}" onsubmit="return validate(this);">
+                <br>{% csrf_token %}<br>
+                <h3>User Login Screen</h3>
+                <p style="color: red; font-size: 1.1em;">{{ data|safe }}</p>
+                <div class="login-container">
+                    <label for="t1">Email ID</label>
+                    <input type="text" name="t1" id="t1" class="login-input" size="30">
+                    <label for="t2">Password</label>
+                    <input type="password" name="t2" id="t2" class="login-input" size="30">
+                    <input type="submit" value="Login" class="login-button">
+                </div>
+            </form>
+        </section>
+        <footer id="footer">
+            <p>&copy; 2024 Deepfake Detection. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
